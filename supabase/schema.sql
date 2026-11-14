@@ -940,6 +940,8 @@ create table if not exists public.staff_disciplinary_records (
  id uuid primary key default gen_random_uuid(),
  officer_id uuid not null references public.officers(id) on delete cascade,
  sanction_type text not null check(sanction_type in ('Warn','Jail','Down','Strike','Altă sancțiune')),
+ player_id text,
+ jail_duration text,
  reason text not null,
  proof_url text,
  created_by uuid not null references auth.users(id),
